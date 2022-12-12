@@ -45,3 +45,4 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     add_index :users, :username,                unique: true
   end
 end
+

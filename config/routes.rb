@@ -23,8 +23,12 @@ Rails.application.routes.draw do
   #get("/", {:controller => "landing", :action => "index"})
   get("/", {:controller => "prompts", :action => "index"})
   
+  #------------------------------------------------------
   #USERS ACCOUNT
+  
   devise_for :users
+
+  #------------------------------------------------------
 
   #PROMPTS
 
@@ -34,8 +38,8 @@ Rails.application.routes.draw do
 
   get("/prompts/:path_id", {:controller => "prompts", :action => "show"})
 
-  #STORIES
 
+  #STORIES
 
   post("/create_stories", {:controller => "stories", :action => "create"})
 end

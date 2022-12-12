@@ -24,10 +24,11 @@
 </form>
 <hr>
   <form action="/create_prompts" method= post>    
-
     <!--If a prompt has not been generated-->
     <button> Choose prompt </button>
   </form>
+<hr>
+<h2>List of all prompts</h2>
 <div>
   <div>
     <table border="1">
@@ -37,7 +38,7 @@
       <th> Species </th>
       <th> Items </th>
       <th> Full Prompt </th>
-      <th>  </th>
+      <th> Details </th>
     </tr>
 
     <% @list_of_prompts.each do |a_prompt| %>
