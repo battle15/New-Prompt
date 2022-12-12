@@ -22,12 +22,16 @@ Rails.application.routes.draw do
   #Home page
   #get("/", {:controller => "landing", :action => "index"})
   get("/", {:controller => "prompts", :action => "index"})
-  
+
   #------------------------------------------------------
   #USERS ACCOUNT
   
-  devise_for :users
+  devise_for :users 
 
+  get("/users", { :controller => "users", :action=> "index"})
+
+  get("/users/:path_id", { :controller => "users", :action=> "show"})
+  
   #------------------------------------------------------
 
   #PROMPTS
@@ -38,6 +42,10 @@ Rails.application.routes.draw do
 
   get("/prompts/:path_id", {:controller => "prompts", :action => "show"})
 
+  # EDIT
+  get("/edit_prompts/:path_id", {:controller => "prompts", :action => "edit"})
+
+  post("/modify_prompts", { :controller => "prompts", :action => "update"})
 
   #STORIES
 

@@ -2,6 +2,7 @@
 
 <!--Show every story for the user---->
 
+<!--needs to change to prompts show page where a list of the current user's prompts with stories are shown.--->
 <form action="/insert_story" method="post">
 
   <!-- TITLE INPUT SECTION--->
@@ -17,8 +18,8 @@
   </div>
 
   <!--To fetch prompt and User id: hidden-->
-  <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%#= prompt.id%>">
+  <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%= @the_prompt.id%>">
 
-  <input type="hidden" id="user_id_box" name="query_user_id" value="<%#=user.id%> ">
+  <input type="hidden" id="user_id_box" name="query_user_id" value="<%=current_user.id%> ">
   <button>Save Story!</button>
 </form>

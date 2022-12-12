@@ -1,0 +1,37 @@
+indv. user profile page
+
+<div>
+<h1>Your Stories (<%= @own.count%>)</h1>
+
+1. <%= @own = @the_user.own_prompts.all%>
+
+<%= p = Prompt.where({:user_id => current_user.id}).sample.id%>
+
+<%= %>
+  <div>
+    <table border="1">
+      <tr>
+        <th> Owner </th>
+        <th> Posted </th>
+        <th> Show</th>
+      </tr>
+      <% @own.each do |own_prompt|%>
+        <tr>
+
+        <td>
+        
+        </td>
+
+          <td>
+            <%= time_ago_in_words(liked_photo.created_at)%> ago
+          </td>
+
+          <td>
+            <a href="/prompt/<%= own_prompt.id%>">Show details</a>
+          </td>
+        </tr>
+
+<% end%>
+</table>
+  </div>
+</div>

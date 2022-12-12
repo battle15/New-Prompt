@@ -6,6 +6,15 @@ class PromptsController < ApplicationController
     render({ :template => "prompt/index.html.erb"})
   end 
 
+  def edit
+    the_id = params.fetch("path_id")
+
+    matching_prompts = Prompt.where({ :id => the_id })
+
+    @the_prompt = matching_prompts.at(0)
+    render({ :template => "prompt/edit.html.erb"})
+  end
+
   def show
     the_id = params.fetch("path_id")
 
@@ -43,6 +52,20 @@ class PromptsController < ApplicationController
     if prompt.valid?
       prompt.save
       redirect_to("/prompts/#{prompt.id}", { :notice => "Prompt created successfully." })
+    else
+      redirect_to("/", { :alert => prompt.errors.full_messages.to_sentence })
+    end
+  end
+
+  def update 
+    prompt_id = params.fetch("query_prompt_id")
+    prompt.user_id = params.fetch("query_user_id")
+    prompt.title = params.fetch("query_title")
+    prompt.body = params.fetch("query_body")
+
+    if prompt.valid?
+      prompt.save
+      redirect_to("/", { :notice => "Prompt created successfully." })
     else
       redirect_to("/", { :alert => prompt.errors.full_messages.to_sentence })
     end

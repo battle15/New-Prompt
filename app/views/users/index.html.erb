@@ -1,0 +1,81 @@
+List of all users
+
+
+<%# --LIST OF ALL USERS--%>
+
+<% if current_user != nil%>
+
+<%# SIGNED IN:  Will show username, privacy status, follow requests, and show details.%>
+
+  <hr>
+  <div>
+    <div>
+      <table border="1">
+        <tr>
+
+          <th> Username</th>
+        
+          <th> Show </th>
+
+        </tr>
+    
+        <% @list_of_users.each do |a_user| %>
+          <tr>
+                  
+          <!-- USERNAME COLUMN -->   
+
+          <td>
+            <%= a_user.id %>
+          </td>
+  
+            <!-- SHOW DETAILS COLUMN -->   
+            <td>
+              <a href="/users/<%= a_user.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <hr>
+
+<% else %>
+
+<%# SIGNED OUT: Will only show username, privacy status, and show details if signed in%>
+
+<div>
+    <div>
+      <table border="1">
+        <tr>
+
+          <th>
+            Username
+          </th>
+
+          <th>
+            <!--SHOW DETAILS-->
+          </th>
+
+        </tr>
+    
+        <% @list_of_users.each do |a_user| %>
+        <tr>
+          <td>
+            <%= a_user.id %>
+          </td>
+
+          <td>
+            <a href="/user_sign_in">
+              Show details
+            </a>
+          </td>
+
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+<% end %>

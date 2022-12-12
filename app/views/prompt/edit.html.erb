@@ -1,3 +1,4 @@
+
 <h1>Prompt: <%= @the_prompt.full_prompt%></h1>
 
 <!--Show every story for the user---->
@@ -17,8 +18,8 @@
   </div>
 
   <!--To fetch prompt and User id: hidden-->
-  <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%#= prompt.id%>">
+  <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%= @the_prompt.id%>">
 
-  <input type="hidden" id="user_id_box" name="query_user_id" value="<%#=user.id%> ">
+  <input type="hidden" id="user_id_box" name="query_user_id" value="<%=current_user.id%> ">
   <button>Save Story!</button>
 </form>
