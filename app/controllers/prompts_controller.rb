@@ -18,11 +18,22 @@ class PromptsController < ApplicationController
   def create
     prompt = Prompt.new
 
-    prompt.location = Faker::Address.country.downcase
-    prompt.species = Faker::Creature::Animal.name.downcase
-    prompt.item = Faker::Appliance.equipment.downcase
+    # text = params.fetch(:prompt_text)
+    location = params.fetch(:location_text)
+    species = params.fetch(:species_text)
+    item = params.fetch(:item_text)
+    # prompt.full_prompt = text
+    prompt.user_id = current_user.id
+    prompt.location = location
+    prompt.species = species
+    prompt.item = item
+    prompt.full_prompt = "Create a story about a #{species} in #{location} with a(n) #{item}"
 
-    prompt.full_prompt = "Create a story about a #{prompt.species} in #{prompt.location} with a(n) #{prompt.item}"
+    #prompt.location = Faker::Address.country.downcase
+    #prompt.species = Faker::Creature::Animal.name.downcase
+    #prompt.item = Faker::Appliance.equipment.downcase
+
+    #prompt.full_prompt = "Create a story about a #{prompt.species} in #{prompt.location} with a(n) #{prompt.item}"
 
     #prompt.save
     
@@ -31,7 +42,7 @@ class PromptsController < ApplicationController
 
     if prompt.valid?
       prompt.save
-      redirect_to("prompt/show", { :notice => "Prompt created successfully." })
+      redirect_to("/", { :notice => "Prompt created successfully." })
     else
       redirect_to("/", { :alert => prompt.errors.full_messages.to_sentence })
     end

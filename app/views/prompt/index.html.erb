@@ -21,7 +21,8 @@
     <% species = Faker::Creature::Animal.name.downcase%>
     <% item = Faker::Appliance.equipment.downcase%>
     <div>
-    <p>Create a story about a <%= species %> in <%= location %> with a(n) <%= item %></p>
+    <% prompt = "Create a story about a #{species} in #{location} with a(n) #{item}" %>
+    <p><%= prompt %></p>
     </div>
 
     <%#= Prompt.first.full_prompt%>
@@ -31,10 +32,19 @@
 <hr>
   <form action="/create_prompts" method= post>    
     <!--If a prompt has not been generated-->
+    <input type="hidden" value=<%= location %> name="location_text">
+    <input type="hidden" value=<%= species %> name="species_text">
+    <input type="hidden" value=<%= item %> name="item_text"> 
+    <input type="hidden" value=<%= prompt %> name="prompt_text">
     <button> Choose prompt </button>
   </form>
+
+
+
+
+
 <hr>
-<h2>List of all prompts</h2>
+<h2>List of all prompts (<%= Prompt.all.count%>)</h2>
 <div>
   <div>
     <table border="1">
@@ -60,6 +70,6 @@
   </div>
 
 </div>
-<%= Prompt.all.count%>
+
 
 <h1 style = "background-color: red; ">Left off: Need to save prompt with "Choose prompt" and save into database</h1>
