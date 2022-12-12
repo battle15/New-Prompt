@@ -1,0 +1,23 @@
+<h1>Prompt: <%= @the_prompt.full_prompt%></h1>
+
+
+<form action="/insert_story" method="post">
+
+  <!-- TITLE INPUT SECTION--->
+  <div>
+    <label for="title_box">Title</label>
+    <textarea type="text" placeholder="Name your story!" id="title_box" name="query_title" rows="1"></textarea>
+  </div>
+
+  <!-- BODY INPUT SECTION--->
+  <div>
+    <label for="body_box">Story</label>
+    <textarea type="body" placeholder="Write your story here!" id="body_box" name="query_body" rows="10"></textarea>
+  </div>
+
+  <!--To fetch prompt and User id: hidden-->
+  <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%#= prompt.id%>">
+
+  <input type="hidden" id="user_id_box" name="query_user_id" value="<%#=user.id%> ">
+  <button>Save Story!</button>
+</form>

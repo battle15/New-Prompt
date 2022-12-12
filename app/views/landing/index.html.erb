@@ -1,0 +1,36 @@
+<!---------Testing Area-------->
+
+<%#= g = User.all.sample.username%>
+<%#= g %>
+
+<!------------------------------>
+<h1>New_Prompt<h1>
+
+<!--from to generate random prompt (prompt shoult not save into database yet)-->
+<form>
+  <h2> Generate a new prompt and see what you create! </h2>
+    <% location = Faker::Address.country.downcase%>
+    <% species = Faker::Creature::Animal.name.downcase%>
+    <% item = Faker::Appliance.equipment.downcase%>
+    <div>
+    <p>Create a story about a <%= species %> in <%= location %> with a(n) <%= item %></p>
+    </div>
+
+    <!-- Once a prompt have been generated -->
+    <!---AJAX will change the buttons--->
+
+    <!-- When button is clicked a random prompt appears-->
+    <button> Generate! </button>
+    <!--------------------------------------->
+    <button> Select new prompt </button>
+
+  <!---Form to save prompt into database--->
+  <form action="/create_prompt" method= post>    
+    <%#= Prompt.first.full_prompt%>
+    <!--If a prompt has not been generated-->
+    <button> Choose prompt </button>
+  </form>
+
+</form>
+
+<%= Prompt.all.count%>

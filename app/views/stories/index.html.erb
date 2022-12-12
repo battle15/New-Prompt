@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all stories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new story
+    </h2>
+
+    <form action="/insert_story" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <textarea id="title_box" name="query_title" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body">
+      </div>
+
+      <div>
+        <label for="prompt_id_box">
+          Prompt
+        </label>
+
+        <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%#= prompt.id%>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%#=user.id%> ">
+      </div>
+
+      <button>
+        Create story
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Body
+        </th>
+
+        <th>
+          Prompt
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_stories.each do |a_story| %>
+      <tr>
+        <td>
+          <%= a_story.id %>
+        </td>
+
+        <td>
+          <%= a_story.title %>
+        </td>
+
+        <td>
+          <%= a_story.body %>
+        </td>
+
+        <td>
+          <%= a_story.prompt_id %>
+        </td>
+
+        <td>
+          <%= a_story.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_story.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_story.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/stories/<%= a_story.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

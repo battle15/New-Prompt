@@ -1,0 +1,58 @@
+<!---<h1>New_Prompt</h1>-->
+
+<!--from to generate random prompt (prompt shoult not save into database yet)-->
+<form>
+
+    <!-- Once a prompt have been generated -->
+    <!---AJAX will change the buttons--->
+
+    <!-- When button is clicked a random prompt appears-->
+    <button> Generate! </button>
+    <!--------------------------------------->
+    <button> Select new prompt </button>
+  <h2> Generate a new prompt and see what you create! </h2>
+    <% location = Faker::Address.country.downcase%>
+    <% species = Faker::Creature::Animal.name.downcase%>
+    <% item = Faker::Appliance.equipment.downcase%>
+    <div>
+    <p>Create a story about a <%= species %> in <%= location %> with a(n) <%= item %></p>
+    </div>
+
+    <%#= Prompt.first.full_prompt%>
+  
+  <!---Form to save prompt into database--->
+</form>
+<hr>
+  <form action="/create_prompts" method= post>    
+
+    <!--If a prompt has not been generated-->
+    <button> Choose prompt </button>
+  </form>
+<div>
+  <div>
+    <table border="1">
+    <tr>
+      <th> Id </th>
+      <th> Location </th>
+      <th> Species </th>
+      <th> Items </th>
+      <th> Full Prompt </th>
+      <th>  </th>
+    </tr>
+
+    <% @list_of_prompts.each do |a_prompt| %>
+      <tr>
+        <td> <%= a_prompt.id %> </td>
+        <td> <%= a_prompt.location %> </td>
+        <td> <%= a_prompt.species %> </td>
+        <td> <%= a_prompt.item %> </td>
+        <td> <%= a_prompt.full_prompt %> </td>
+        <td> <a href="/prompts/<%=a_prompt.id %>">Show details</a></td>
+      </tr>
+    <% end %>
+  </div>
+
+</div>
+<%= Prompt.all.count%>
+
+<h1 style = "background-color: red; ">Left off: Need to save prompt with "Choose prompt" and save into database</h1>

@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Story #<%= @the_story.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/stories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_story/<%= @the_story.id %>">
+          Delete story
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_story.title %>
+      </dd>
+
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_story.body %>
+      </dd>
+
+      <dt>
+        Prompt
+      </dt>
+      <dd>
+        <%= @the_story.prompt_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_story.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit story
+    </h2>
+
+    <form action="/modify_story/<%= @the_story.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <textarea id="title_box" name="query_title"><%= @the_story.title %></textarea>
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body" value="<%= @the_story.body %>">
+      </div>
+
+      <div>
+        <label for="prompt_id_box">
+          Prompt
+        </label>
+
+        <input type="text" id="prompt_id_box" name="query_prompt_id" value="<%= @the_story.prompt_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_story.user_id %>">
+      </div>
+
+      <button>
+        Update story
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
