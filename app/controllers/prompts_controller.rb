@@ -42,7 +42,7 @@ class PromptsController < ApplicationController
 
     if prompt.valid?
       prompt.save
-      redirect_to("/", { :notice => "Prompt created successfully." })
+      redirect_to("/prompts/#{prompt.id}", { :notice => "Prompt created successfully." })
     else
       redirect_to("/", { :alert => prompt.errors.full_messages.to_sentence })
     end
