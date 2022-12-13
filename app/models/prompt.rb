@@ -16,5 +16,5 @@
 #
 class Prompt < ApplicationRecord
   belongs_to(:users, { :required => true, :class_name => "User", :foreign_key => "user_id" })
-  has_many(:stories, {:class_name => "Story", :foreign_key => "prompt_id" })
+  has_many(:stories, {:class_name => "Story", :foreign_key => "story_id" })
 end
