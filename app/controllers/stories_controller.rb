@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
 
     if the_story.valid?
       the_story.save
-      redirect_to("/stories", { :notice => "Story created successfully." })
+      redirect_to("/users/#{current_user.id}>", { :notice => "Story created successfully." })
     else
       redirect_to("/stories", { :alert => the_story.errors.full_messages.to_sentence })
     end
@@ -55,6 +55,6 @@ class StoriesController < ApplicationController
 
     the_story.destroy
 
-    redirect_to("/stories", { :notice => "Story deleted successfully."} )
+    redirect_to("/users/#{current_user.id}", { :notice => "Story deleted successfully."} )
   end
 end

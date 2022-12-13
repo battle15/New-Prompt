@@ -17,6 +17,7 @@ def show
 
   the_user_id = @the_user.id
 
+  #need to change to "own_stories"
   @own = @the_user.own_prompts.all
 
 end

@@ -1,6 +1,8 @@
 <!---<h1>New_Prompt</h1>-->
 <!--TESTING AREA-->
 
+  |
+
   <%#= current_user.id%>
 <!----------------->
 <!--from to generate random prompt (prompt shoult not save into database yet)-->
@@ -35,12 +37,15 @@
     <input type="hidden" value=<%= species %> name="species_text">
     <input type="hidden" value=<%= item %> name="item_text"> 
     <input type="hidden" value=<%= prompt %> name="prompt_text">
+    <input type="hidden" value=<%= item %> name="item_text"> 
+    <input type="hidden" value=<%= prompt %> name="prompt_text">
+
     <button> Choose prompt </button>
   </form>
 
 
-<!--
-<h2>List of all prompts (<%#= Prompt.all.count%>)</h2>
+
+<h2>List of all prompts (<%= Prompt.all.count%>)</h2>
 <div>
   <div>
     <table border="1">
@@ -50,20 +55,23 @@
       <th> Species </th>
       <th> Items </th>
       <th> Full Prompt </th>
+      <th> Title </th>
+      <th> Body </th>
       <th> Details </th>
     </tr>
 
-    <#% @list_of_prompts.each do |a_prompt| %>
+    <% @list_of_prompts.each do |a_prompt| %>
       <tr>
-        <td> <%#= a_prompt.id %> </td>
-        <td> <%#= a_prompt.location %> </td>
-        <td> <%#= a_prompt.species %> </td>
-        <td> <%#= a_prompt.item %> </td>
-        <td> <%#= a_prompt.full_prompt %> </td>
-        <td> <a href="/prompts/<%#=a_prompt.id %>">Show details</a></td>
+        <td> <%= a_prompt.id %> </td>
+        <td> <%= a_prompt.location %> </td>
+        <td> <%= a_prompt.species %> </td>
+        <td> <%= a_prompt.item %> </td>
+        <td> <%= a_prompt.full_prompt %> </td>
+        <td> <%= a_prompt.title %> </td>
+        <td> <%= a_prompt.body %> </td>
+        <td> <a href="/prompts/<%=a_prompt.id %>">Show details</a></td>
       </tr>
-    <#% end %>
+    <% end %>
   </div>
 
 </div>
--->

@@ -1,7 +1,15 @@
-indv. user profile page
+<hr>
+<p style ="color: red;">indv. user profile page</p>
+<hr>
 
 <div>
-<h1>Your Stories (<%= @own.count%>)</h1>
+
+<!--Headind if page belongs to current user-->
+<% if current_user.id == @the_user.id%>
+  <h1>Your Stories (<%= @own.count%>)</h1>
+<% else %>
+  <h1>Their Stories (<%= @own.count%>)</h1>
+<% end %>
 
 1. <%= @own = @the_user.own_prompts.all%>
 
@@ -12,22 +20,32 @@ indv. user profile page
     <table border="1">
       <tr>
         <th> Owner </th>
+        <th> Title </th>
         <th> Posted </th>
         <th> Show</th>
+        <th> Delete </th>
       </tr>
-      <% @own.each do |own_prompt|%>
+      <% @own.each do |own_story|%>
         <tr>
-
+          <!--  OWNER COLUMN -->
         <td>
-        
+          <%= own_story.users.id %>
         </td>
-
+          <!-- TITLE COLUMN -->
+        <td> <%= own_story.title %> </td>
           <td>
-            <%= time_ago_in_words(liked_photo.created_at)%> ago
+            <%= time_ago_in_words(own_story.created_at)%> ago
+          </td>
+          <!-- SHOW COLUMN -->
+          <td>
+            <a href="/stories/<%= own_story.id%>">Show details</a>
           </td>
 
+          <!-- DELETE PROMPT COLUMN -->
           <td>
-            <a href="/prompt/<%= own_prompt.id%>">Show details</a>
+            <a href="/delete_story/<%= own_story.id %>">
+              Delete
+            </a>
           </td>
         </tr>
 

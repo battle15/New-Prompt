@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_many(:prompts, { :class_name => "Prompt", :foreign_key => "user_id", :dependent => :destroy })
   
   has_many(:stories, { :class_name => "Story", :foreign_key => "user_id", :dependent => :destroy })
-
-  has_many(:own_prompts, {:foreign_key => "user_id", :class_name => "Prompt"})
+  
+  # Need to change to "own_stories"
+  has_many(:own_prompts, {:foreign_key => "user_id", :class_name => "Story"})
 end

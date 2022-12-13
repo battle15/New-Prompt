@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   #------------------------------
 
+  
   #Home page
   #get("/", {:controller => "landing", :action => "index"})
   get("/", {:controller => "prompts", :action => "index"})
