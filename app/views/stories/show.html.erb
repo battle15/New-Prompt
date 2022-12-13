@@ -3,7 +3,7 @@
     <h1>
       <%= @the_story.title %>
     </h1>
-    <%=Story.all.first%>
+
     <div>
       <div>
         <a href="/stories">
@@ -19,13 +19,13 @@
     </div>
 
     <dl>
+
       <dt>
-        Title
+        Prompt
       </dt>
       <dd>
-        <%= @the_story.title %>
+        <%= @the_story.prompts.full_prompt %>
       </dd>
-
       <dt>
         Body
       </dt>
@@ -33,19 +33,6 @@
         <%= @the_story.body %>
       </dd>
 
-      <dt>
-        Prompt
-      </dt>
-      <dd>
-        <%= @the_story.prompt_id %>
-      </dd>
-
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_story.user_id %>
-      </dd>
 
       <dt>
         Created at
