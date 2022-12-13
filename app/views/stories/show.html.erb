@@ -6,7 +6,7 @@
 
     <div>
       <div>
-        <a href="/stories">
+        <a href="/users/<%= current_user.id%>">
           Go back
         </a>
       </div>
@@ -33,7 +33,6 @@
         <%= @the_story.body %>
       </dd>
 
-
       <dt>
         Created at
       </dt>
@@ -53,7 +52,7 @@
 
 <hr>
 
-
+<!--- EDIT STORY FORM --->
 <div>
   <div>
     <h2>
@@ -78,19 +77,11 @@
       </div>
 
       <div>
-        <label for="prompt_id_box">
-          Prompt
-        </label>
 
-        <input type="text" id="prompt_id_box" name="query_prompt_id" value="<%= @the_story.prompt_id %>">
+        <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%= @the_story.prompt_id %>">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_story.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_story.user_id %>">
       </div>
 
       <button>
