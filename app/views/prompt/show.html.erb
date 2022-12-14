@@ -4,7 +4,7 @@
 
 
 <!---------------->
-<h1>Prompt: <%= @the_prompt.full_prompt%></h1>
+<p class ="fs-2" >Prompt: <%= @the_prompt.full_prompt%></p>
 
 <!--Show every story for the user---->
 
@@ -27,5 +27,5 @@
   <input type="hidden" id="prompt_id_box" name="query_prompt_id" value="<%= @the_prompt.id%>">
 
   <input type="hidden" id="user_id_box" name="query_user_id" value="<%=current_user.id%> ">
-  <button>Save Story!</button>
+  <button class="btn btn-primary">Save Story!</button>
 </form>

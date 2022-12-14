@@ -1,10 +1,11 @@
-<!---<h1>New_Prompt</h1>-->
 <!--TESTING AREA-->
-<h1 style= "background: red">2. View MSM signin (1:48:00) into to format pages correctly and filter infomation to only show the users stories.  3. *Idea: add "Use prompt" to prompts on other user's pages to create a story using thier prompts 4.*idea: add notes section about the story in the story edit section. 5. *add comments section</h1> 
- <%#= current_user.id%>
+
 <!----------------->
+
+
 <!--from to generate random prompt (prompt shoult not save into database yet)-->
-<h2> Generate a new prompt and see what you create! </h2>
+<div class="col-xs-1" align="center">
+<p class="fs-1 fw-bold"> Generate a new prompt and see what you create! </p>
 <form>
 
     <!-- Once a prompt have been generated -->
@@ -15,13 +16,15 @@
     <!--------------------------------------->
 
 
-    <button> Generate new prompt! </button>
+    <button class="btn btn-primary"> Generate new prompt! </button>
+
     <% location = Faker::Address.country.downcase%>
     <% species = Faker::Creature::Animal.name.downcase%>
     <% item = Faker::Appliance.equipment.downcase%>
-    <div>
+    
+    <div >
     <% prompt = "Create a story about a #{species} in #{location} with a(n) #{item}" %>
-    <p>Prompt: <%= prompt %></p>
+    <p class="fs-2"><%= prompt %></p>
     </div>
 
     <%#= Prompt.first.full_prompt%>
@@ -38,7 +41,7 @@
     <input type="hidden" value=<%= item %> name="item_text"> 
     <input type="hidden" value=<%= prompt %> name="prompt_text">
 
-    <button> Choose prompt </button>
+    <button class="btn btn-primary"> Choose prompt! </button>
   </form>
 
 
