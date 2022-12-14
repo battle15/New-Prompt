@@ -23,7 +23,7 @@
     <% item = Faker::Appliance.equipment.downcase%>
     
     <div >
-    <% prompt = "Create a story about a #{species} in #{location} with a(n) #{item}" %>
+    <% prompt = "Create a story about a #{species} in #{location} with #{item.with_indefinite_article}" %>
     <p class="fs-2"><%= prompt %></p>
     </div>
 
