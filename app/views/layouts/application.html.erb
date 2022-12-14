@@ -12,46 +12,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
   </head>
+  
+  <div>
+  <!--<div class ="container">-->
 
   <body>
- <div> <h1>New_Prompt</h1></div>
-    <ul>
-      <li>
-        <a href="/users">All users</a>
-      </li>
+    <%= render "shared/navbar" %>
+ 
 
-      <li>
-        <a href="/prompts">New story</a>
-      </li>
-  <% if current_user == nil %>  
-      <li>
-        <a href="/users/sign_in">Sign in</a>
-      </li>
-      <li>
-        <a href="/users/sign_up">Sign up</a>
-      </li>
-
-    <% else %>
-    
-      <li>
-      <a href="/users/edit">Edit user</a> 
-      </li>
-
-      <li>
-        <a href="/users/<%= current_user.id%>">Your stories</a>
-      
-      <li>
-      <a href="/users/sign_out">Sign out</a>
-      </li>
-
-      <% end %>
-
-    </ul>
-    <%= notice %>
-    <%= alert %>
+      <%= notice %>
+      <%= alert %>
 
     <%= yield %>
+
+    <%= render "shared/footer" %>
+
   </body>
+</div>
 </html>
