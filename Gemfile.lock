@@ -371,6 +371,7 @@ DEPENDENCIES
   grade_runner!
   htmlbeautifier
   http
+  indefinite_article (~> 0.2.5)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   nokogiri (>= 1.10.8)

@@ -56,3 +56,4 @@ group :production do
 end
 
 gem 'devise'
+gem 'indefinite_article', '~> 0.2.5'
