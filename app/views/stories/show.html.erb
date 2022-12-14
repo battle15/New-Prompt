@@ -1,9 +1,41 @@
-<div>
-  <div>
-    <h1>
-      <%= @the_story.title %>
-    </h1>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      <h1>
+        <%= @the_story.title %>
+      </h1>
 
+        <dt>
+          Story
+        </dt>
+
+        <dd>
+          <%= @the_story.body %>
+        </dd>
+    </div>
+    <div class="col">
+      <dt>
+        Prompt
+      </dt>
+      <dd>
+        <%= @the_story.prompts.full_prompt %>
+      </dd>
+      
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.created_at) %> ago
+      </dd>
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.updated_at) %> ago
+      </dd>
     <div>
       <div>
         <a href="/users/<%= current_user.id%>">
@@ -17,63 +49,32 @@
         </a>
       </div>
     </div>
-
-    <dl>
-
-      <dt>
-        Prompt
-      </dt>
-      <dd>
-        <%= @the_story.prompts.full_prompt %>
-      </dd>
-      <dt>
-        Body
-      </dt>
-      <dd>
-        <%= @the_story.body %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_story.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_story.updated_at) %> ago
-      </dd>
-    </dl>
+    </div>
   </div>
 </div>
 
 <hr>
 
 <!--- EDIT STORY FORM --->
-<div>
+<div class = "">
   <div>
     <h2>
       Edit story
     </h2>
 
     <form action="/modify_story/<%= @the_story.id %>"  method="post" >
-      <div>
-        <label for="title_box">
-          Title
-        </label>
+      <div class="col-xs-2">
+        <label class="form-label fs-4" for="title_box"> Title</label>
 
-        <textarea id="title_box" name="query_title"><%= @the_story.title %></textarea>
+        <textarea class="form-control" id="title_box" name="query_title" rows="1"><%= @the_story.title %></textarea>
       </div>
 
       <div>
-        <label for="body_box">
+        <label class="form-label fs-4" for="body_box">
           Body
         </label>
 
-        <textarea type="text" id="body_box" name="query_body" value="<%= @the_story.body %>"><%= @the_story.body %></textarea>
+        <textarea class="form-control" type="text" id="body_box" name="query_body" value="<%= @the_story.body %>"><%= @the_story.body %></textarea>
       </div>
 
       <div>
@@ -90,5 +91,3 @@
     </form>
   </div>
 </div>
-
-<hr>

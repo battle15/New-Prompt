@@ -1,5 +1,4 @@
-<div>
-
+<div class="container-fluid">
 <!--Headind if page belongs to current user-->
 <% if current_user.id == @the_user.id%>
   <h1>Your Stories (<%= @own.count%>)</h1>
@@ -10,20 +9,22 @@
 
 <%= %>
   <div>
-    <table border="1">
+    <table class="table" >
       <tr>
-        <th> Owner </th>
+        <%# <th> Owner </th> %>
         <th> Title </th>
-        <th> Posted </th>
-        <th> Show</th>
-        <th> Delete </th>
+        <th> Created </th>
+        <th> <!--show--> </th>
+        <th> <!--delete--> </th>
       </tr>
       <% @own.each do |own_story|%>
         <tr>
           <!--  OWNER COLUMN -->
-        <td>
-          <%= own_story.users.id %>
-        </td>
+
+        <!-- <td>
+          <%# <%= own_story.users.id %>%>
+        </td>-->
+
           <!-- TITLE COLUMN -->
         <td> <%= own_story.title %> </td>
           <td>
@@ -31,13 +32,15 @@
           </td>
           <!-- SHOW COLUMN -->
           <td>
-            <a href="/stories/<%= own_story.id%>">Show details</a>
+            <a href="/stories/<%= own_story.id%>">View</a>
           </td>
 
           <!-- DELETE PROMPT COLUMN -->
           <td>
             <a href="/delete_story/<%= own_story.id %>">
-              Delete
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg>
             </a>
           </td>
         </tr>
